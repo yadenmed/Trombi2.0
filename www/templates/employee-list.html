@@ -4,14 +4,15 @@
         <label class="item-input-wrapper">
             <i class="icon ion-ios7-search placeholder-icon"></i>
             <input id="searchKey" type="search" placeholder="Rechercher" ng-model="searchKey" autocorrect="off" >
-            <button class="button button-clear" ng-click="clearSearch()">X</button>
+            
         </label>
-        <button class="button button-clear" ng-click="search()">Rechercher</button>
+        <button ng-if="searchKey.length>0" class="button button-clear" ng-click="clear()">X</button>
+        <!-- <button class="button button-clear" ng-click="search()">Rechercher</button> -->
     </div>
 
     <ion-content class="has-header has-subheader">
         <ion-list>
-            <ion-item ng-repeat="employee in employees" type="item-text-wrap" class="item-avatar"
+            <ion-item ng-repeat="employee in employees | filter:searchKey" type="item-text-wrap" class="item-avatar"
                       href="#/employees/{{employee.id}}">
                 <img src="pics/{{employee.pic}}"/>
                 {{employee.firstName}} {{employee.lastName}}

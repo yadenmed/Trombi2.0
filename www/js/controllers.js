@@ -4,12 +4,14 @@ angular.module('directory.controllers', [])
 
         $scope.searchKey = "";
 
-        $scope.clearSearch = function () {
-            $scope.searchKey = "";
-            $scope.employees = Employees.query();
+         $scope.clear = function () {
+            
+            $scope.searchKey = '';
+            
         }
 
         $scope.search = function () {
+
             $scope.employees = Employees.query({name: $scope.searchKey});
         }
 
